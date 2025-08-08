@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Vote{% endblock %}
+{% block content %}
+<h2>Vote</h2>
+{% if voted %}
+  <p>You already voted. <a href="{{ url_for('results') }}">See results</a></p>
+{% else %}
+  <form method="post">
+    {% for c in candidates %}
+      <label><input type="radio" name="candidate" value="{{ c.id }}"> {{ c.name }}</label><br>
+    {% endfor %}
+    <button type="submit">Submit Vote</button>
+  </form>
+{% endif %}
+{% endblock %}
