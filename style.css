@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; max-width:800px; margin:20px auto; padding:10px; background:#fafafa; }
+nav { background:#f3f3f3; padding:8px; margin-bottom:10px; border-radius:6px; }
+nav a { margin-right:10px; text-decoration:none; color:#333; }
+.container { padding:10px; background:#fff; border-radius:6px; box-shadow:0 0 5px rgba(0,0,0,0.05); }
+.flashes { list-style:none; padding:0; color: #d9534f; }
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+th,td { text-align:left; padding:8px; border-bottom:1px solid #eee; }
+button { padding:8px 12px; border-radius:4px; cursor:pointer; }
+input[type="text"], input[type="password"], input[name="username"] { padding:6px; width: 100%; box-sizing: border-box; margin-bottom:8px; }
+label { display:block; margin-bottom:6px; }
