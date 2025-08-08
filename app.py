@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "dev_secret_change_me")  # set SECRET_KEY in host for production
+app.secret_key = os.environ.get("SECRET_KEY", "dev_secret_change_me")
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASE = os.path.join(BASE_DIR, "database.db")
 
@@ -40,7 +40,6 @@ def init_db():
     ''')
     c.execute('SELECT COUNT(*) FROM candidates')
     if c.fetchone()[0] == 0:
-        # default sample candidates
         c.executemany('INSERT INTO candidates (name) VALUES (?)',
                       [("Alice",), ("Bob",), ("Charlie",)])
     conn.commit()
@@ -150,6 +149,10 @@ def results():
     ''').fetchall()
     conn.close()
     return render_template("results.html", rows=rows)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
